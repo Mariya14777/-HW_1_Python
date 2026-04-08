@@ -1,8 +1,9 @@
 import math
 
+
 def square(side):
-    area = side * side
-    return math.ceil(area)
+    return math.ceil(side ** 2)
+
 
 print(square(5))
 print(square(5.2))
