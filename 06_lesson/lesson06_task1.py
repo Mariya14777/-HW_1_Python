@@ -15,12 +15,14 @@ try:
     button.click()
 
     # Ждем появления зеленой плашки с текстом
-    # Правильный селектор для зеленой плашки
     success_message = WebDriverWait(driver, 20).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, ".bg-success"))
     )
 
     print(success_message.text)
+
+except Exception as e:
+    print(f"Произошла ошибка: {e}")
 
 finally:
     driver.quit()
