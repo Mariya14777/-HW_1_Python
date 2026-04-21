@@ -13,7 +13,8 @@ def pytest_addoption(parser):
         "--browser",
         action="store",
         default="edge",
-        help="Browser: chrome, firefox, edge")
+        help="Browser: chrome, firefox, edge"
+    )
 
 
 @pytest.fixture
@@ -35,3 +36,4 @@ def browser(request):
     driver.maximize_window()
     yield driver
     driver.quit()
+
