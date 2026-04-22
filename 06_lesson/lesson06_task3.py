@@ -8,19 +8,16 @@ try:
     url = "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html"
     driver.get(url)
 
-    # Ждем загрузки минимум 3 картинок
     wait = WebDriverWait(driver, 30)
-    wait.until(lambda d: len(d.find_elements(
-        By.CSS_SELECTOR, "#image-container img")) >= 3)
 
-    # Находим все картинки
-    images = driver.find_elements(By.CSS_SELECTOR, "#image-container img")
+    # Ждем загрузки третьей картинки (award)
+    third_image = wait.until(
+        lambda d: d.find_element(By.ID, "award")
+        if d.find_element(By.ID, "award").get_attribute("src")
+        else False
+    )
 
-    if len(images) >= 3:
-        third_image_src = images[2].get_attribute("src")
-        print(third_image_src)
-    else:
-        print("Загружено меньше 3-х картинок")
+    print(third_image.get_attribute("src"))
 
 finally:
     driver.quit()
