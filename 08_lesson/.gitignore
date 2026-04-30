@@ -1,0 +1,17 @@
+# Secrets
+config_local.py
+*.key
+*.secret
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.env
+.venv
+venv/
+
+# IDE
+.vscode/
+.idea/
